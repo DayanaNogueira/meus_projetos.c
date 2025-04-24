@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+
+    char estado1, estado2;
+    char codigo1[4], codigo2[4];
+    char cidade1[50], cidade2[50];
+    int populacao1, populacao2;
+    float area1, area2, pib1, pib2;
+    int pontos1, pontos2;
+    float densidade1, densidade2;
+    float pibpercapita1, pibpercapita2;
+
+    // Cadastro carta 1
+    printf("Digite as informacoes da primeira carta:\n");
+
+    printf("Estado de A a H: ");
+    scanf(" %c", &estado1);
+
+    printf("Codigo da carta (ex. A01): ");
+    scanf(" %s", codigo1);
+
+    getchar(); // Limpa o ENTER pendente
+
+    printf("Nome da cidade: ");
+    fgets(cidade1, sizeof(cidade1), stdin);
+    cidade1[strcspn(cidade1, "\n")] = 0; // Remove quebra de linha
+
+    printf("População: ");
+    scanf("%d", &populacao1);
+
+    printf("Área (em km²): ");
+    scanf("%f", &area1);
+
+    printf("PIB (em bilhões de reais): ");
+    scanf("%f", &pib1);
+
+    printf("Número de pontos turísticos: ");
+    scanf("%d", &pontos1);
+
+    // Cadastro carta 2
+    printf("\nDigite as informacoes da segunda carta:\n");
+
+    printf("Estado de A a H: ");
+    scanf(" %c", &estado2);
+
+    printf("Codigo da carta (ex. A01): ");
+    scanf(" %s", codigo2);
+
+    getchar(); // Limpa o ENTER pendente
+
+    printf("Nome da cidade: ");
+    fgets(cidade2, sizeof(cidade2), stdin);
+    cidade2[strcspn(cidade2, "\n")] = 0; // Remove quebra de linha
+
+    printf("População: ");
+    scanf("%d", &populacao2);
+
+    printf("Área (em km²): ");
+    scanf("%f", &area2);
+
+    printf("PIB (em bilhões de reais): ");
+    scanf("%f", &pib2);
+
+    printf("Número de pontos turísticos: ");
+    scanf("%d", &pontos2);
+
+    // Calculos
+    densidade1 = populacao1 / area1;
+    pibpercapita1 = (pib1 * 1000000000) / populacao1;
+
+    densidade2 = populacao2 / area2;
+    pibpercapita2 = (pib2 * 1000000000) / populacao2;
+
+    // Exibir carta 1
+    printf("\nCarta 1:\n");
+    printf("Estado: %c\n", estado1);
+    printf("Código: %s\n", codigo1);
+    printf("Cidade: %s\n", cidade1);
+    printf("População: %d\n", populacao1);
+    printf("Área: %.2f km²\n", area1);
+    printf("PIB: R$ %.2f bilhões\n", pib1);
+    printf("Pontos turísticos: %d\n", pontos1);
+    printf("Densidade: %.2f hab/km²\n", densidade1);
+    printf("PIB per capita: R$ %.2f\n", pibpercapita1);
+
+    // Exibir carta 2
+    printf("\nCarta 2:\n");
+    printf("Estado: %c\n", estado2);
+    printf("Código: %s\n", codigo2);
+    printf("Cidade: %s\n", cidade2);
+    printf("População: %d\n", populacao2);
+    printf("Área: %.2f km²\n", area2);
+    printf("PIB: R$ %.2f bilhões\n", pib2);
+    printf("Pontos turísticos: %d\n", pontos2);
+    printf("Densidade: %.2f hab/km²\n", densidade2);
+    printf("PIB per capita: R$ %.2f\n", pibpercapita2);
+
+    // Mostrar vencedor
+    printf("\nVencedor:\n");
+    if (pontos1 > pontos2) {
+        printf("Carta 1\n");
+    } else if (pontos2 > pontos1) {
+        printf("Carta 2\n");
+    } else {
+        printf("Empate\n");
+    }
+
+    return 0;
+}
+// O código acima é um exemplo de um programa em C que cadastra informações de duas cartas,
+// calcula a densidade populacional e o PIB per capita, e determina qual carta é a vencedora
+// com base no número de pontos turísticos. O programa utiliza variáveis para armazenar
+// informações como estado, código, nome da cidade, população, área, PIB e pontos turísticos.
+// Ele também utiliza funções de entrada e saída para interagir com o usuário e exibir os resultados.
+// O código é bem estruturado e utiliza boas práticas, como a limpeza do buffer de entrada
+// e a remoção de quebras de linha. Além disso, ele realiza cálculos simples e exibe os resultados
+// de forma clara e organizada. O programa é um bom exemplo de como trabalhar com variáveis,
+// entrada e saída em C, além de demonstrar a lógica de comparação entre duas cartas.
+// O código pode ser melhorado com a adição de validações de entrada, tratamento de erros
+// e a utilização de funções para modularizar o código. Além disso, pode-se considerar
+// a implementação de uma estrutura de dados para armazenar as informações das cartas,
+// facilitando a manipulação e o acesso aos dados. No geral, o código é funcional e atende
+// ao propósito de cadastrar e comparar informações de cartas, mas pode ser aprimorado
+// para torná-lo mais robusto e flexível.
